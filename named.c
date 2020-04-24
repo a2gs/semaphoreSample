@@ -101,9 +101,8 @@ int main(int argc, char *argv[])
 		pid_t cproc = 0;
 		char cid = ' ';
 
-		sleep(9);
-		cproc = fork();
-		if(cproc == 0){ cid = 'A'; sleep(9);}
+		cproc = fork(); /* just another child to stress the semaphore */
+		if(cproc == 0) cid = 'A';
 		else           cid = 'B';
 
 		printf("\t\tCHILD [%c]: Child process PID: [%d]\n", cid, getpid());
